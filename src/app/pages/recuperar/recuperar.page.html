@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-back-outline" text="" color="black" defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <h1>Wonderland</h1>
+  </div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Recuperar Contraseña</ion-card-title>
+    </ion-card-header>
+
+    <form class="container">
+      <ion-item>
+        <ion-input label="Correo" type="email" labelPlacement="floating" placeholder="Ingrese email" [(ngModel)]="email" name="Correo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Pregunta de Seguridad</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-select [(ngModel)]="preguntaSeguridad" name="preguntaSeguridad" placeholder="Seleccione una pregunta">
+          <ion-select-option value="¿Cuál es el apellido de tu abuelo?">¿Cuál es el apellido de tu abuelo?</ion-select-option>
+          <ion-select-option value="¿En qué ciudad naciste?">¿En qué ciudad naciste?</ion-select-option>
+          <ion-select-option value="¿Cuál es el nombre de tu primera mascota?">¿Cuál es el nombre de tu primera mascota?</ion-select-option>
+          <ion-select-option value="¿Cuál es el nombre de tu mejor amigo de la infancia?">¿Cuál es el nombre de tu mejor amigo de la infancia?</ion-select-option>
+          <ion-select-option value="¿En qué escuela estudiaste?">¿En qué escuela estudiaste?</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Respuesta" labelPlacement="floating" placeholder="Ingrese su respuesta" [(ngModel)]="respuestaSeguridad" name="respuesta"></ion-input>
+      </ion-item>
+      <ion-button (click)="validacion()" color="secondary">Recuperar Contraseña</ion-button>
+  
+      <div class="validacion">
+        <p *ngIf="correoVal">- Ingrese un correo válido</p>
+        <p *ngIf="respuestaVal">- Respuesta incorrecta o correo no encontrado</p>
+      </div>
+      
+    </form>
+    
+  </ion-card>
+</ion-content>
